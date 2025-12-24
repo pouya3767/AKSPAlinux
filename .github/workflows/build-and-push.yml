@@ -57,7 +57,7 @@ jobs:
         run: |
           ISO_FILE=$(ls *.iso | head -n 1)
           sha256sum "$ISO_FILE" > "$ISO_FILE".sha256
-          # generate SHA256 checksum for verification
+        # generate SHA256 checksum for verification
 
       - name: Create tag in AKSPAISO
         run: |
