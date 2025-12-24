@@ -126,3 +126,6 @@ xdg-utils
 xfsprogs
 xl2tpd
 zsh
+qt5-wayland
+qt6-wayland
+mesa
