@@ -27,7 +27,7 @@ jobs:
           docker exec archiso pacman -Sy --noconfirm
           docker exec archiso pacman -S --noconfirm \
             archiso git squashfs-tools xorriso grub
-          # install required tools for building ISO
+          # install required tools for building the ISO
 
       - name: Build ISO
         run: |
@@ -81,24 +81,17 @@ jobs:
         run: sleep 10
         # ensures GitHub sees the new tag before creating release
 
-      - name: Create GitHub Release
+      - name: Create GitHub Release and upload ISO + checksum
         uses: softprops/action-gh-release@v1
         with:
           repository: pouya3767/AKSPAISO
           tag_name: ${{ env.ISO_TAG }}
           name: ${{ env.ISO_TAG }}
           body: "Automated ISO build"
-        env:
-          GITHUB_TOKEN: ${{ secrets.ISO_PUSH_TOKEN }}
-        # create a new release in AKSPAISO repo
-
-      - name: Upload ISO and checksum to Release
-        uses: softprops/action-gh-release@v1
-        with:
           files: "*.iso,*.sha256"
         env:
           GITHUB_TOKEN: ${{ secrets.ISO_PUSH_TOKEN }}
-        # upload ISO and checksum to release
+        # creates the release and uploads ISO + checksum in a single step
 
 # Deprecated method (pushing ISO directly to repo) left commented for reference
 #      - name: Clone ISO repository
