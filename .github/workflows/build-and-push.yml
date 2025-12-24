@@ -65,7 +65,7 @@ jobs:
           cd iso-repo
           git checkout master
           # check if tag exists
-          if git show-ref --tags | grep -q "refs/tags/$ISO_TAG"; then
+          if git ls-remote --tags origin | grep -q "refs/tags/$ISO_TAG"; then            
             echo "Tag $ISO_TAG already exists, skipping creation"
           else
             git tag "$ISO_TAG"
