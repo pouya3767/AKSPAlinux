@@ -7,12 +7,12 @@ on:
 
 jobs:
   build:
-    if: github.repository == 'pouya3767/AKSPAlinux'
-    runs-on: ubuntu-latest # os 
+    if: github.repository == 'pouya3767/AKSPAlinux' # ensure it only runs in the main repo
+    runs-on: ubuntu-latest # OS to run the workflow on
 
     steps:
       - name: Checkout source repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # get the AKSPAlinux source
 
       - name: Start Arch Linux container
         run: |
@@ -20,12 +20,14 @@ jobs:
             --privileged \
             -v $PWD:/workspace \
             archlinux:latest tail -f /dev/null
+          # start a privileged Arch container for building ISO
 
       - name: Install archiso tools
         run: |
           docker exec archiso pacman -Sy --noconfirm
           docker exec archiso pacman -S --noconfirm \
             archiso git squashfs-tools xorriso grub
+          # install all required tools for building the ISO
 
       - name: Build ISO
         run: |
@@ -33,58 +35,63 @@ jobs:
             cd /workspace &&
             mkdir -p out &&
             mkarchiso -v releng -o out
-          " # making the iso
+          "
+          # make the ISO inside the container
 
       - name: Copy ISO out of container
         run: |
           docker exec archiso bash -lc "cp /workspace/out/*.iso /workspace"
+          # copy the built ISO to the GitHub runner workspace (avoids chmod issues)
+
       - name: Stop container
         if: always()
         run: docker stop archiso
-      
+        # stop the Arch container even if previous steps fail
+
+      - name: Generate ISO tag for release
+        id: vars
+        run: echo "ISO_TAG=akspalinux-$(date +%Y.%m.%d)" >> $GITHUB_ENV
+        # create a properly formatted tag name for the GitHub release
 
       - name: Generate checksum # sha256checksum
         run: |
           ISO_FILE=$(ls *.iso | head -n 1)
           sha256sum "$ISO_FILE" > "$ISO_FILE".sha256
+          # generate SHA256 checksum for verification
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           repository: pouya3767/AKSPAISO
-          tag_name: "akspalinux-$(date +'%Y.%m.%d')"
-          name: "AKSPAlinux ISO $(date +'%Y.%m.%d')"
+          tag_name: ${{ env.ISO_TAG }}
+          name: ${{ env.ISO_TAG }}
           body: "Automated ISO build"
         env:
           GITHUB_TOKEN: ${{ secrets.ISO_PUSH_TOKEN }}
+        # create a new release in AKSPAISO repo
 
-      - name: Upload ISO to Release
+      - name: Upload ISO and checksum to Release
         uses: softprops/action-gh-release@v1
         with:
           files: "*.iso,*.sha256"
         env:
           GITHUB_TOKEN: ${{ secrets.ISO_PUSH_TOKEN }}
+        # upload the ISO and checksum to the release
 
-
-
-
-#
-#
+# Previous method of cloning/pushing ISO to repo (deprecated):
 #      - name: Clone ISO repository
 #        run: |
-#          git clone https://x-access-token:${{ secrets.ISO_PUSH_TOKEN }}@github.com/pouya3767/AKSPAISO.git iso-repo # cloning the AKSPAISO repo for pushing the result
+#          git clone https://x-access-token:${{ secrets.ISO_PUSH_TOKEN }}@github.com/pouya3767/AKSPAISO.git iso-repo
 #
 #      - name: Push ISO to AKSPAISO repo
 #        run: |
 #          ISO_FILE=$(ls out/*.iso | head -n 1)
-#
 #          cp "$ISO_FILE" iso-repo/
-#
 #          cd iso-repo
 #          git config user.name "github-actions"
 #          git config user.email "actions@github.com"
-#
 #          git add *.iso
-#          git commit -m "New AKSPAlinux ISO build ($(date +'%Y-%m-%d'))" # making the commit
-#          git push # pushing the results
+#          git commit -m "New AKSPAlinux ISO build ($(date +'%Y-%m-%d'))"
+#          git push
+# Deprecated: replaced by GitHub Releases to handle large ISO files
 
