@@ -41,22 +41,50 @@ jobs:
       - name: Stop container
         if: always()
         run: docker stop archiso
+      
 
-      - name: Clone ISO repository
+      - name: Generate checksum # sha256checksum
         run: |
-          git clone https://x-access-token:${{ secrets.ISO_PUSH_TOKEN }}@github.com/pouya3767/AKSPAISO.git iso-repo # cloning the AKSPAISO repo for pushing the result
+          ISO_FILE=$(ls *.iso | head -n 1)
+          sha256sum "$ISO_FILE" > "$ISO_FILE".sha256
 
-      - name: Push ISO to AKSPAISO repo
-        run: |
-          ISO_FILE=$(ls out/*.iso | head -n 1)
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          repository: pouya3767/AKSPAISO
+          tag_name: "akspalinux-$(date +'%Y.%m.%d')"
+          name: "AKSPAlinux ISO $(date +'%Y.%m.%d')"
+          body: "Automated ISO build"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ISO_PUSH_TOKEN }}
 
-          cp "$ISO_FILE" iso-repo/
+      - name: Upload ISO to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "*.iso,*.sha256"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ISO_PUSH_TOKEN }}
 
-          cd iso-repo
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
 
-          git add *.iso
-          git commit -m "New AKSPAlinux ISO build ($(date +'%Y-%m-%d'))" # making the commit
-          git push # pushing the results
+
+
+#
+#
+#      - name: Clone ISO repository
+#        run: |
+#          git clone https://x-access-token:${{ secrets.ISO_PUSH_TOKEN }}@github.com/pouya3767/AKSPAISO.git iso-repo # cloning the AKSPAISO repo for pushing the result
+#
+#      - name: Push ISO to AKSPAISO repo
+#        run: |
+#          ISO_FILE=$(ls out/*.iso | head -n 1)
+#
+#          cp "$ISO_FILE" iso-repo/
+#
+#          cd iso-repo
+#          git config user.name "github-actions"
+#          git config user.email "actions@github.com"
+#
+#          git add *.iso
+#          git commit -m "New AKSPAlinux ISO build ($(date +'%Y-%m-%d'))" # making the commit
+#          git push # pushing the results
 
