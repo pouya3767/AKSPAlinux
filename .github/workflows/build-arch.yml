@@ -1,0 +1,42 @@
+name: Professional Arch ISO Builder
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Update System and Install Archiso
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm archiso git
+
+      - name: Setup Custom Profile
+        run: |
+          cp -r /usr/share/archiso/configs/releng/ ./custom_profile
+          
+          cat <<EOF >> ./custom_profile/packages.x86_64
+          gnome
+          gnome-extra
+          gdm
+          networkmanager
+          firefox
+          terminal
+          EOF
+
+      - name: Build ISO
+        run: |
+          mkdir -p out
+          mkarchiso -v -w ./work -o ./out ./custom_profile
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: My-Arch-Gnome-ISO
+          path: out/*.iso
