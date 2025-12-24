@@ -59,20 +59,20 @@ jobs:
           sha256sum "$ISO_FILE" > "$ISO_FILE".sha256
           # generate SHA256 checksum for verification
 
-#      - name: Create tag in AKSPAISO
-#        run: |
-#          git clone https://x-access-token:${{ secrets.ISO_PUSH_TOKEN }}@github.com/pouya3767/AKSPAISO.git iso-repo
-#          cd iso-repo
-#          git checkout master
-#          git tag $ISO_TAG
-#          git push origin $ISO_TAG
-          # Check if tag exists
-#          if git rev-parse "$ISO_TAG" >/dev/null 2>&1; then
-#          echo "Tag $ISO_TAG already exists, skipping creation"
-#          else
-#            git tag $ISO_TAG
-#            git push origin $ISO_TAG
-#          fi
+      - name: Create tag in AKSPAISO
+        run: |
+          git clone https://x-access-token:${{ secrets.ISO_PUSH_TOKEN }}@github.com/pouya3767/AKSPAISO.git iso-repo
+          cd iso-repo
+          git checkout master
+          git tag $ISO_TAG
+          git push origin $ISO_TAG
+        # Check if tag exists
+          if git rev-parse "$ISO_TAG" >/dev/null 2>&1; then
+            echo "Tag $ISO_TAG already exists, skipping creation"
+          else
+            git tag -f $ISO_TAG
+            git push -f origin $ISO_TAG
+          fi
  
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
