@@ -129,3 +129,11 @@ zsh
 qt5-wayland
 qt6-wayland
 mesa
+hyprland
+kitty
+xorg-xwayland
+polkit-gnome
+waybar
+wofi
+hyprpaper
+dolphin
