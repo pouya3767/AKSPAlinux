@@ -401,3 +401,12 @@ hyprpaper
 dolphin
 xf86-video-intel
 libva-intel-driver
+calamares
+ckbcomp
+hwinfo
+qt5-svg
+qt5-xmlpatterns
+qt5-translations
+upower
+os-prober
+networkmanager
