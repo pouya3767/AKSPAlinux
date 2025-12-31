@@ -1,0 +1,18 @@
+---
+componentName:  default
+strings:
+    productName:         AKSPALinux
+    shortProductName:    AKSPA
+    productVersion:      2025
+    shortProductVersion: 2025
+    versionedName:       AKSPALinux 2025
+    shortVersionedName:  AKSPA 2025
+    bootloaderEntryName: AKSPA
+images:
+    productLogo:         "squid.png"
+    productIcon:         "squid.png"
+    productWelcome:      "languages.png"
+style:
+   sidebarBackground:    "#292F34"
+   sidebarText:          "#FFFFFF"
+   sidebarTextHighlight: "#D35400"
