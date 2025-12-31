@@ -78,6 +78,9 @@ nilfs-utils
 nmap
 ntfs-3g
 nvme-cli
+nvidia-dkms
+nvidia-utils
+nvidia-settings
 open-iscsi
 open-vm-tools
 openconnect
