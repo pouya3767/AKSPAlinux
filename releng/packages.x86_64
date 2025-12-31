@@ -138,3 +138,6 @@ waybar
 wofi
 hyprpaper
 dolphin
+nvidia
+nvidia-utils
+libva-nvidia-driver
