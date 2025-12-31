@@ -151,3 +151,9 @@ wayland-protocols
 libinput
 libxkbcommon
 seatd
+calamares
+qt5-svg
+qt5-xmlpatterns
+ki18n
+kconfig
+kcoreaddons
