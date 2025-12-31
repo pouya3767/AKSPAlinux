@@ -138,3 +138,5 @@ waybar
 wofi
 hyprpaper
 dolphin
+vulkan-intel
+nvidia-utils
