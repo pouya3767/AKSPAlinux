@@ -133,6 +133,7 @@ zsh
 qt5-wayland
 qt6-wayland
 mesa
+mesa-utils
 hyprland
 kitty
 xorg-xwayland
@@ -143,3 +144,10 @@ hyprpaper
 dolphin
 nvidia-utils
 libva-nvidia-driver
+mesa
+libglvnd
+wayland
+wayland-protocols
+libinput
+libxkbcommon
+seatd
