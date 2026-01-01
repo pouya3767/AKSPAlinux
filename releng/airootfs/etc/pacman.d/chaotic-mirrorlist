@@ -1,2 +1,3 @@
+Server = https://geo-mirror.chaotic.cx/$repo/$arch
 Server = https://cdn-mirror.chaotic.cx/$repo/$arch
 
