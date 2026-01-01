@@ -152,7 +152,6 @@ libinput
 libxkbcommon
 seatd
 calamares
-calamares-extensions
 chaotic-keyring
 chaotic-mirrorlist
 qt5-svg
