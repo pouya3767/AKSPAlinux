@@ -152,6 +152,7 @@ libinput
 libxkbcommon
 seatd
 calamares
+calamares-extensions
 qt5-svg
 qt5-xmlpatterns
 ki18n
