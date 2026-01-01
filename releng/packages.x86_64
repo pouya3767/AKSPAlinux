@@ -81,6 +81,7 @@ nvme-cli
 nvidia-dkms
 nvidia-utils
 nvidia-settings
+networkmanager
 open-iscsi
 open-vm-tools
 openconnect

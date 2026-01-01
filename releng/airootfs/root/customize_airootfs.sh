@@ -24,8 +24,8 @@ ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 # --------------------------------------------------
 # Create live user
 # --------------------------------------------------
-useradd -m -G wheel,video,audio,input,seat liveuser
-echo "liveuser:live" | chpasswd
+# useradd -m -G wheel,video,audio,input,seat liveuser
+# echo "liveuser:live" | chpasswd
 
 # Passwordless sudo for live user
 echo "liveuser ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/liveuser
