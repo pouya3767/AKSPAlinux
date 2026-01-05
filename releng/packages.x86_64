@@ -152,7 +152,7 @@ wayland-protocols
 libinput
 libxkbcommon
 seatd
-calamares-git
+calamares
 chaotic-keyring
 chaotic-mirrorlist
 qt5-svg
