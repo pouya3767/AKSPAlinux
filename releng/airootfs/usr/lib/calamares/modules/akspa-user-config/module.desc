@@ -1,0 +1,5 @@
+---
+type:       "job"
+name:       "akspa-user-config"
+interface:  "python"
+script:     "main.py"

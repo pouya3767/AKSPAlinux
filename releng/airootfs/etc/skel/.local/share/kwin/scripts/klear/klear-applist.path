@@ -1,0 +1,11 @@
+[Unit]
+Description=Watch for Klear package and application-list updates
+
+[Path]
+PathChanged=%h/.local/share/kwin/scripts/klear/metadata.json
+PathChanged=%h/.local/share/applications
+PathChanged=/usr/local/share/applications
+PathChanged=/usr/share/applications
+
+[Install]
+WantedBy=default.target

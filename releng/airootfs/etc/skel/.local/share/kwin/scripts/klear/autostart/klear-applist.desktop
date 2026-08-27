@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Klear app-list refresh
+Comment=Refreshes Klear's exclude checklist from the apps installed on this machine
+Exec=sh -c "$HOME/.local/share/kwin/scripts/klear/build-applist.sh"
+X-KDE-autostart-phase=2
+OnlyShowIn=KDE;
+NoDisplay=true

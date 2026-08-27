@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Name": "Klear",
+        "Description": "Because krappy™ graphics kards deserve transparency too!",
+        "Icon": "preferences-system-windows",
+
+        "Authors": [
+            {
+                "email": "arjazz@icloud.com",
+                "Name": "Aaron Rohrbacher"
+            }
+        ],
+        "Id": "klear",
+        "Version": "0.3.0",
+        "License": "GPLv3",
+        "Website": "https://github.com/AaronRohrbacher/klear_kwin"
+    },
+    "X-Plasma-API": "javascript",
+    "X-Plasma-MainScript": "code/main.js",
+    "KPackageStructure": "KWin/Script",
+    "X-KDE-ConfigModule": "kwin/effects/configs/kcm_kwin4_genericscripted"
+}

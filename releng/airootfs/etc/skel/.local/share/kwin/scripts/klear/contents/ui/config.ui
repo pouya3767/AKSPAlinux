@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Kwin::KlearConfigForm</class>
+ <widget class="QWidget" name="Kwin::KlearConfigForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>420</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string/>
+  </property>
+  <layout class="QVBoxLayout" name="rootLayout">
+   <property name="leftMargin">
+    <number>16</number>
+   </property>
+   <property name="topMargin">
+    <number>16</number>
+   </property>
+   <property name="rightMargin">
+    <number>16</number>
+   </property>
+   <property name="bottomMargin">
+    <number>16</number>
+   </property>
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="logo">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>klear.png</pixmap>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="opacitySection">
+     <item>
+      <widget class="QLabel" name="opacityLabel">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Your chosen transparency level for new windows.</string>
+       </property>
+       <property name="text">
+        <string>Opacity</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="kcfg_userSetOpacity">
+       <property name="minimum">
+        <number>40</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>90</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="tickPosition">
+        <enum>QSlider::TickPosition::TicksBelow</enum>
+       </property>
+       <property name="tickInterval">
+        <number>10</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="opacityLabels">
+       <item><widget class="QLabel" name="opacityNotKlear"><property name="text"><string>Not Klear</string></property></widget></item>
+       <item><widget class="QLabel" name="opacity50"><property name="text"><string>50%</string></property><property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property></widget></item>
+       <item><widget class="QLabel" name="opacity60"><property name="text"><string>60%</string></property><property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property></widget></item>
+       <item><widget class="QLabel" name="opacity70"><property name="text"><string>70%</string></property><property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property></widget></item>
+       <item><widget class="QLabel" name="opacity80"><property name="text"><string>80%</string></property><property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property></widget></item>
+       <item><widget class="QLabel" name="opacity90"><property name="text"><string>90%</string></property><property name="alignment"><set>Qt::AlignmentFlag::AlignCenter</set></property></widget></item>
+       <item><widget class="QLabel" name="opacityVeryKlear"><property name="text"><string>Very Klear</string></property><property name="alignment"><set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set></property></widget></item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="excludeLabel">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Exclude from transparency</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="excludeHint">
+     <property name="text">
+      <string>Tick installed apps to keep them fully opaque.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="selectAllExclusions">
+     <property name="toolTip">
+      <string>Click again to clear all exclusions.</string>
+     </property>
+     <property name="text">
+      <string>Select All</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QScrollArea" name="excludeScroll">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="excludeScrollContents">
+      <layout class="QVBoxLayout" name="excludeList">
+       <property name="leftMargin">
+        <number>4</number>
+       </property>
+       <property name="topMargin">
+        <number>4</number>
+       </property>
+       <property name="rightMargin">
+        <number>4</number>
+       </property>
+       <property name="bottomMargin">
+        <number>4</number>
+       </property>
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <!-- APPLIST:START -->
+       <!-- APPLIST:END -->
+       <item>
+        <widget class="QLabel" name="refreshHint">
+         <property name="text">
+          <string>Restart KWin to refresh the app list.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: palette(mid); padding: 8px;</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="excludeSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="customRow">
+     <item>
+      <widget class="QLabel" name="customLabel">
+       <property name="toolTip">
+        <string>Comma-separated window classes; matched as substrings.</string>
+       </property>
+       <property name="text">
+        <string>Custom</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="kcfg_excludedWindows">
+       <property name="toolTip">
+        <string>Type window classes not listed above, separated by commas.</string>
+       </property>
+       <property name="placeholderText">
+        <string>firefox, brave, vlc</string>
+       </property>
+       <property name="clearButtonEnabled">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="restartNote">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;A KWin restart is required for changes to take effect.&lt;br/&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;After installing Klear for the first time, you'll need to log out and back in to populate the exclusion list&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="version">
+     <property name="text">
+      <string>Klear 0.3 — transparency for krappy™ graphics cards</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <!-- APPLIST_CONNECTIONS:START -->
+  <!-- APPLIST_CONNECTIONS:END -->
+ </connections>
+</ui>

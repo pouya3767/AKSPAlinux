@@ -1,0 +1,177 @@
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=112,111,110
+ColorAmount=0
+ColorEffect=0
+ContrastAmount=0.65
+ContrastEffect=1
+Enable=
+IntensityAmount=0.1
+IntensityEffect=0
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=112,111,110
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=2
+Enable=true
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=93,95,100
+BackgroundNormal=68,69,75
+DecorationFocus=104,107,111
+DecorationHover=104,107,111
+ForegroundActive=104,107,111
+ForegroundInactive=153,153,153
+ForegroundLink=196,198,202
+ForegroundNegative=191,3,3
+ForegroundNeutral=176,128,0
+ForegroundNormal=234,234,234
+ForegroundPositive=0,110,40
+ForegroundVisited=224,64,251
+
+[Colors:Complementary]
+BackgroundAlternate=54,57,62
+BackgroundNormal=33,35,41
+DecorationFocus=104,107,111
+DecorationHover=104,107,111
+ForegroundActive=104,107,111
+ForegroundInactive=153,153,153
+ForegroundLink=196,198,202
+ForegroundNegative=191,3,3
+ForegroundNeutral=176,128,0
+ForegroundNormal=234,234,234
+ForegroundPositive=0,110,40
+ForegroundVisited=224,64,251
+
+[Colors:Header]
+BackgroundAlternate=54,56,62
+BackgroundNormal=49,49,58
+DecorationFocus=104,107,111
+DecorationHover=104,107,111
+ForegroundActive=104,107,111
+ForegroundInactive=153,153,153
+ForegroundLink=196,198,202
+ForegroundNegative=191,3,3
+ForegroundNeutral=176,128,0
+ForegroundNormal=234,234,234
+ForegroundPositive=0,110,40
+ForegroundVisited=224,64,251
+
+[Colors:Header][Inactive]
+BackgroundAlternate=54,56,62
+BackgroundNormal=49,49,58
+DecorationFocus=86,87,245
+DecorationHover=86,87,245
+ForegroundActive=255,128,224
+ForegroundInactive=153,153,153
+ForegroundLink=66,133,244
+ForegroundNegative=191,3,3
+ForegroundNeutral=176,128,0
+ForegroundNormal=234,234,234
+ForegroundPositive=0,110,40
+ForegroundVisited=224,64,251
+
+[Colors:Selection]
+BackgroundAlternate=87,89,95
+BackgroundNormal=87,89,95
+DecorationFocus=104,107,111
+DecorationHover=104,107,111
+ForegroundActive=104,107,111
+ForegroundInactive=255,255,255
+ForegroundLink=76,78,81
+ForegroundNegative=156,14,14
+ForegroundNeutral=255,221,0
+ForegroundNormal=255,255,255
+ForegroundPositive=128,255,128
+ForegroundVisited=224,64,251
+
+[Colors:Tooltip]
+BackgroundAlternate=54,57,62
+BackgroundNormal=33,35,41
+DecorationFocus=104,107,111
+DecorationHover=104,107,111
+ForegroundActive=104,107,111
+ForegroundInactive=153,153,153
+ForegroundLink=196,198,202
+ForegroundNegative=191,3,3
+ForegroundNeutral=176,128,0
+ForegroundNormal=221,221,221
+ForegroundPositive=0,110,40
+ForegroundVisited=224,64,251
+
+[Colors:View]
+BackgroundAlternate=54,56,62
+BackgroundNormal=49,49,58
+DecorationFocus=104,107,111
+DecorationHover=104,107,111
+ForegroundActive=104,107,111
+ForegroundInactive=153,153,153
+ForegroundLink=196,198,202
+ForegroundNegative=191,3,3
+ForegroundNeutral=176,128,0
+ForegroundNormal=234,234,234
+ForegroundPositive=0,110,40
+ForegroundVisited=224,64,251
+
+[Colors:Window]
+BackgroundAlternate=54,56,62
+BackgroundNormal=49,49,58
+DecorationFocus=104,107,111
+DecorationHover=104,107,111
+ForegroundActive=104,107,111
+ForegroundInactive=153,153,153
+ForegroundLink=196,198,202
+ForegroundNegative=191,3,3
+ForegroundNeutral=176,128,0
+ForegroundNormal=234,234,234
+ForegroundPositive=0,110,40
+ForegroundVisited=224,64,251
+
+[General]
+AccentColor=104,107,111
+BrowserApplication=google-chrome.desktop
+ColorScheme=thelast
+ColorSchemeHash=505367d758e2be89e366f02abc7be25d31cc0b37
+LastUsedCustomAccentColor=104,107,111
+
+[Icons]
+Theme=YAMIS
+
+[KDE]
+AnimationDurationFactor=0.35355339059327373
+contrast=0
+frameContrast=0.2
+widgetStyle=Darkly
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=false
+Decoration position=2
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=true
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=140
+View Style=DetailTree
+
+[KScreen]
+ScreenScaleFactors=eDP-1=1;
+
+[WM]
+activeBackground=54,56,62
+activeBlend=59,62,68
+activeForeground=221,221,221
+inactiveBackground=62,65,71
+inactiveBlend=67,71,77
+inactiveForeground=120,120,120

@@ -1,0 +1,11 @@
+[Theme]
+name=default
+
+[Theme-plasma-themeexplorer]
+name=air
+
+[Theme-plasmathemeexplorer]
+name=breeze-dark
+
+[Wallpapers]
+usersWallpapers=/usr/share/wallpapers/AKSPA/p0uya3767.png,/usr/share/wallpapers/AKSPA/welcome.png
